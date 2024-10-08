@@ -45,31 +45,6 @@ class UsersRecord extends FirestoreRecord {
   String get phoneNumber => _phoneNumber ?? '';
   bool hasPhoneNumber() => _phoneNumber != null;
 
-  // "address" field.
-  String? _address;
-  String get address => _address ?? '';
-  bool hasAddress() => _address != null;
-
-  // "bio" field.
-  String? _bio;
-  String get bio => _bio ?? '';
-  bool hasBio() => _bio != null;
-
-  // "cartProductsRef" field.
-  List<String>? _cartProductsRef;
-  List<String> get cartProductsRef => _cartProductsRef ?? const [];
-  bool hasCartProductsRef() => _cartProductsRef != null;
-
-  // "is_loggedin" field.
-  bool? _isLoggedin;
-  bool get isLoggedin => _isLoggedin ?? false;
-  bool hasIsLoggedin() => _isLoggedin != null;
-
-  // "price" field.
-  double? _price;
-  double get price => _price ?? 0.0;
-  bool hasPrice() => _price != null;
-
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -77,11 +52,6 @@ class UsersRecord extends FirestoreRecord {
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
-    _address = snapshotData['address'] as String?;
-    _bio = snapshotData['bio'] as String?;
-    _cartProductsRef = getDataList(snapshotData['cartProductsRef']);
-    _isLoggedin = snapshotData['is_loggedin'] as bool?;
-    _price = castToType<double>(snapshotData['price']);
   }
 
   static CollectionReference get collection =>
@@ -124,10 +94,6 @@ Map<String, dynamic> createUsersRecordData({
   String? uid,
   DateTime? createdTime,
   String? phoneNumber,
-  String? address,
-  String? bio,
-  bool? isLoggedin,
-  double? price,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -137,10 +103,6 @@ Map<String, dynamic> createUsersRecordData({
       'uid': uid,
       'created_time': createdTime,
       'phone_number': phoneNumber,
-      'address': address,
-      'bio': bio,
-      'is_loggedin': isLoggedin,
-      'price': price,
     }.withoutNulls,
   );
 
@@ -152,18 +114,12 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
 
   @override
   bool equals(UsersRecord? e1, UsersRecord? e2) {
-    const listEquality = ListEquality();
     return e1?.email == e2?.email &&
         e1?.displayName == e2?.displayName &&
         e1?.photoUrl == e2?.photoUrl &&
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
-        e1?.phoneNumber == e2?.phoneNumber &&
-        e1?.address == e2?.address &&
-        e1?.bio == e2?.bio &&
-        listEquality.equals(e1?.cartProductsRef, e2?.cartProductsRef) &&
-        e1?.isLoggedin == e2?.isLoggedin &&
-        e1?.price == e2?.price;
+        e1?.phoneNumber == e2?.phoneNumber;
   }
 
   @override
@@ -173,12 +129,7 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.photoUrl,
         e?.uid,
         e?.createdTime,
-        e?.phoneNumber,
-        e?.address,
-        e?.bio,
-        e?.cartProductsRef,
-        e?.isLoggedin,
-        e?.price
+        e?.phoneNumber
       ]);
 
   @override

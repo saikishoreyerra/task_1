@@ -7,17 +7,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:538237330288:android:c4142be8e800b5304465b5",
+        "mobilesdk_app_id": "1:538237330288:android:32c54c0c853355bc4465b5",
         "android_client_info": {
-          "package_name": "com.my.dinnerday"
+          "package_name": "com.company.ecom"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "538237330288-dpq2v985hrb3ok1pghe74ll4a66e4p1n.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyDIiYqac37XTdWkPvd0LvG4up0RrAFEOYk"
@@ -25,35 +20,18 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "538237330288-asg7t45drjdohbiopa9dkf4l9n55i609.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "538237330288-ulc4pd1a2re4d9sc9j6naau5577v5id7.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.mycompany.newww"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:538237330288:android:b47f4ca88281d9f44465b5",
+        "mobilesdk_app_id": "1:538237330288:android:87614105ff0d67634465b5",
         "android_client_info": {
-          "package_name": "com.mycompany.dinnerday"
+          "package_name": "com.company.sample"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "538237330288-dpq2v985hrb3ok1pghe74ll4a66e4p1n.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyDIiYqac37XTdWkPvd0LvG4up0RrAFEOYk"
@@ -61,19 +39,7 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "538237330288-asg7t45drjdohbiopa9dkf4l9n55i609.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "538237330288-ulc4pd1a2re4d9sc9j6naau5577v5id7.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.mycompany.newww"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     },
@@ -84,12 +50,7 @@
           "package_name": "com.mycompany.newww"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "538237330288-dpq2v985hrb3ok1pghe74ll4a66e4p1n.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyDIiYqac37XTdWkPvd0LvG4up0RrAFEOYk"
@@ -97,19 +58,7 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "538237330288-asg7t45drjdohbiopa9dkf4l9n55i609.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "538237330288-ulc4pd1a2re4d9sc9j6naau5577v5id7.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.mycompany.newww"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

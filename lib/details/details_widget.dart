@@ -8,7 +8,7 @@ export 'details_model.dart';
 class DetailsWidget extends StatefulWidget {
   const DetailsWidget({
     super.key,
-    this.data,
+    required this.data,
   });
 
   final WatchesRecord? data;
@@ -48,9 +48,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Text(
-            FFLocalizations.of(context).getText(
-              'gyhncj9f' /* Page Title */,
-            ),
+            'Page Title',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: Colors.white,
@@ -85,32 +83,6 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
-                        letterSpacing: 0.0,
-                      ),
-                ),
-                Text(
-                  valueOrDefault<String>(
-                    widget.data?.name,
-                    '--',
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        letterSpacing: 0.0,
-                      ),
-                ),
-                Text(
-                  MediaQuery.sizeOf(context).height.toString(),
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 20.0,
-                        letterSpacing: 0.0,
-                      ),
-                ),
-                Text(
-                  MediaQuery.sizeOf(context).width.toString(),
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 20.0,
                         letterSpacing: 0.0,
                       ),
                 ),

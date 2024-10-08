@@ -7,7 +7,7 @@ import '/backend/backend.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/main.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -73,46 +73,33 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const LoginPageWidget(),
+          appStateNotifier.loggedIn ? const CollectionWidget() : const Auth1Widget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const LoginPageWidget(),
+              appStateNotifier.loggedIn ? const CollectionWidget() : const Auth1Widget(),
         ),
         FFRoute(
-          name: 'Cart',
-          path: '/cart',
-          asyncParams: {
-            'selectedCloth': getDoc(['clothes'], ClothesRecord.fromSnapshot),
-            'selectedGrocery':
-                getDoc(['groceries'], GroceriesRecord.fromSnapshot),
-            'salectedWatch': getDoc(['watches'], WatchesRecord.fromSnapshot),
-          },
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Cart')
-              : CartWidget(
-                  selectedCloth: params.getParam(
-                    'selectedCloth',
-                    ParamType.Document,
-                  ),
-                  selectedGrocery: params.getParam(
-                    'selectedGrocery',
-                    ParamType.Document,
-                  ),
-                  salectedWatch: params.getParam(
-                    'salectedWatch',
-                    ParamType.Document,
-                  ),
-                ),
+          name: 'Auth1',
+          path: '/auth1',
+          builder: (context, params) => const Auth1Widget(),
+        ),
+        FFRoute(
+          name: 'List02Products',
+          path: '/list02Products',
+          builder: (context, params) => const List02ProductsWidget(),
+        ),
+        FFRoute(
+          name: 'collection',
+          path: '/collection',
+          builder: (context, params) => const CollectionWidget(),
         ),
         FFRoute(
           name: 'HomePage',
           path: '/homePage',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'HomePage')
-              : const HomePageWidget(),
+          builder: (context, params) => const HomePageWidget(),
         ),
         FFRoute(
           name: 'details',
@@ -126,132 +113,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.Document,
             ),
           ),
-        ),
-        FFRoute(
-          name: 'Profile',
-          path: '/profile',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Profile')
-              : const ProfileWidget(),
-        ),
-        FFRoute(
-          name: 'ProductPage',
-          path: '/productPage',
-          asyncParams: {
-            'clothesdata': getDoc(['clothes'], ClothesRecord.fromSnapshot),
-            'groceriesdata':
-                getDoc(['groceries'], GroceriesRecord.fromSnapshot),
-            'watchesdata': getDoc(['watches'], WatchesRecord.fromSnapshot),
-          },
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'ProductPage')
-              : ProductPageWidget(
-                  clothesdata: params.getParam(
-                    'clothesdata',
-                    ParamType.Document,
-                  ),
-                  groceriesdata: params.getParam(
-                    'groceriesdata',
-                    ParamType.Document,
-                  ),
-                  watchesdata: params.getParam(
-                    'watchesdata',
-                    ParamType.Document,
-                  ),
-                ),
-        ),
-        FFRoute(
-          name: 'Favourites',
-          path: '/favourites',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Favourites')
-              : const FavouritesWidget(),
-        ),
-        FFRoute(
-          name: 'splash_screen',
-          path: '/splashScreen',
-          builder: (context, params) => const SplashScreenWidget(),
-        ),
-        FFRoute(
-          name: 'Api_productinfo',
-          path: '/apiProductinfo',
-          builder: (context, params) => ApiProductinfoWidget(
-            id: params.getParam(
-              'id',
-              ParamType.int,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'API_page',
-          path: '/aPIPage',
-          builder: (context, params) => const APIPageWidget(),
-        ),
-        FFRoute(
-          name: 'LoginPage',
-          path: '/loginPage',
-          builder: (context, params) => const LoginPageWidget(),
-        ),
-        FFRoute(
-          name: 'SignUpPage',
-          path: '/signUpPage',
-          builder: (context, params) => const SignUpPageWidget(),
-        ),
-        FFRoute(
-          name: 'Filter_data',
-          path: '/filterData',
-          builder: (context, params) => FilterDataWidget(
-            clothDataModify: params.getParam(
-              'clothDataModify',
-              ParamType.bool,
-            ),
-            groceryDataModify: params.getParam(
-              'groceryDataModify',
-              ParamType.bool,
-            ),
-            watchDataModify: params.getParam(
-              'watchDataModify',
-              ParamType.bool,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'forgot_password',
-          path: '/forgotPassword',
-          builder: (context, params) => const ForgotPasswordWidget(),
-        ),
-        FFRoute(
-          name: 'Test',
-          path: '/test',
-          builder: (context, params) => const TestWidget(),
-        ),
-        FFRoute(
-          name: 'test1',
-          path: '/test1',
-          asyncParams: {
-            'testname': getDoc(['clothes'], ClothesRecord.fromSnapshot),
-          },
-          builder: (context, params) => Test1Widget(
-            testname: params.getParam(
-              'testname',
-              ParamType.Document,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'payment',
-          path: '/payment',
-          builder: (context, params) => const PaymentWidget(),
-        ),
-        FFRoute(
-          name: 'maps',
-          path: '/maps',
-          builder: (context, params) => const MapsWidget(),
-        ),
-        FFRoute(
-          name: 'cust_code',
-          path: '/custCode',
-          builder: (context, params) => const CustCodeWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -371,7 +232,6 @@ class FFParameters {
     ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
-    StructBuilder<T>? structBuilder,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -390,7 +250,6 @@ class FFParameters {
       type,
       isList,
       collectionNamePath: collectionNamePath,
-      structBuilder: structBuilder,
     );
   }
 }
@@ -424,7 +283,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/loginPage';
+            return '/auth1';
           }
           return null;
         },
@@ -438,11 +297,15 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Container(
-                  color: Colors.transparent,
-                  child: Image.asset(
-                    'assets/images/paint-5314505_640.jpg',
-                    fit: BoxFit.cover,
+              ? Center(
+                  child: SizedBox(
+                    width: 50.0,
+                    height: 50.0,
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        FlutterFlowTheme.of(context).primary,
+                      ),
+                    ),
                   ),
                 )
               : page;
